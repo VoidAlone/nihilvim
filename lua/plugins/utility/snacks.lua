@@ -20,17 +20,7 @@ return {
         -- cmd = "lolcat -b " .. vim.fn.stdpath('config') .. "/lua/config/themes/headers2.txt",
         -- cmd = "cat " .. vim.fn.stdpath("config") .. "/lua/config/themes/dash_neovim.txt",
         cmd = 'lolcat -f -b -g 6c17b6:ff5e00 ' .. header_file,
-        -- cmd = {
-        --     vim.o.shell, '-c',
-        --     string.format(
-        --         [[while read -r line; do 
-        --             echo "$line";
-        --             sleep 0.01;
-        --         done < "%s" | lolcat -f -b
-        --         ]],
-        --         header_file
-        --     ),
-        -- },
+        pty = false,
         indent = -5,
         height = 8,
         width = 69,
