@@ -1,0 +1,19 @@
+{
+  "Build Task": {
+    "prefix": "make-task",
+    "body": [
+      "{",
+      "  \"label\": \"build\",",
+      "  \"type\": \"shell\",",
+      "  \"command\": \"make\",",
+      "  \"group\": {",
+      "    \"kind\": \"build\",",
+      "    \"isDefault\": true",
+      "  },",
+      "  \"problemMatcher\": []",
+      "}"
+    ],
+    "description": "Simple Makefile build task"
+  }
+}
+
