@@ -1,2 +1,2 @@
 require('config.dap.adapters.python')
-require('config.dap.adapters.cpp')
+require('config.dap.adapters.gdb')

@@ -7,12 +7,11 @@ dap.adapters.gdb = {
     args = {'--interpreter=dap', '--eval-command', 'set print pretty on',},
 }
 
-dap.configurations.cpp = {
-    {
-        name = 'Run Executable (GDB)',
+local function gdb_general_config(name)
+    return{
+        name = name,
         type = 'gdb',
         request = 'launch',
-        --function to get the executable to run
         program = function()
             local path = vim.fn.input({
                 prompt = 'Path to executable: ',
@@ -23,5 +22,25 @@ dap.configurations.cpp = {
         end,
         cwd = '${workspaceFolder}',
         stopAtBeginningOfMainSubprogram = false,
-    },
+        setupCommands = {
+            text = '-enable-pretty-printing',
+            ignoreFailures = true
+        }
+    }
+end
+
+dap.configurations.c = {
+    gdb_general_config('Launch C (GDB)')
+}
+
+dap.configurations.cpp = {
+    gdb_general_config('Launch C++ (GDB)')
+}
+
+dap.configurations.rust = {
+    gdb_general_config('Launch Rust (GDB)')
+}
+
+dap.configurations.ada = {
+    gdb_general_config('Launch Ada (GDB)')
 }
