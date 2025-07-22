@@ -4,16 +4,8 @@ return {
         {'igorlfs/nvim-dap-view', opts = {
             auto_toggle = true,
             winbar = {
-                sections = {'watches', 'scopes', 'exceptions', 'breakpoints', 'threads', 'repl', 'console'},
-                headers = {
-                    breakpoints = "Breakpoints [B]",
-                    scopes = "Scopes [S]",
-                    exceptions = "Exceptions [E]",
-                    watches = "Watches [W]",
-                    threads = "Threads [T]",
-                    repl = "REPL [R]",
-                    console = "Console [C]",
-                }
+                sections = {'watches', 'scopes', 'exceptions', 'breakpoints', 'threads', 'repl', 'disassembly', 'console'},
+                default_section = 'scopes',
             }
         }}
     },
