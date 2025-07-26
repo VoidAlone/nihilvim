@@ -2,7 +2,6 @@ vim.lsp.enable({
     'lua_ls',
     'ccls',
     'pyright',
-    -- 'roslyn',
 })
 
 local home = vim.fn.expand("~")

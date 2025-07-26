@@ -1,0 +1,11 @@
+{
+    "name": "debug-snippets",
+    "contributes": {
+        "snippets": [
+            {
+                "language": "json",
+                "path": "./custom-snippets/json.json"
+            }
+        ]
+    }
+}
