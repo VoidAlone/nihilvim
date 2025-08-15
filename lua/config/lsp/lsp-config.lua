@@ -20,7 +20,9 @@ vim.lsp.config('godot', {
     root_dir = vim.fs.dirname(vim.fs.find({ 'project.godot', '.git' }, { upward = true })[1]),
     filetypes = {'gdscript', 'gdshader'},
     on_attach = function(client, bufnr)
-        vim.fn.serverstart(pipe)
+        if vim.fn.exists('v:servername') == 0 then
+            vim.fn.serverstart(pipe)
+        end
     end
 })
 
