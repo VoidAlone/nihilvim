@@ -26,9 +26,17 @@ vim.lsp.config('godot', {
     end
 })
 
+vim.lsp.config('clangd', {
+    --experimental-modules-support
+    cmd = {'clangd', '--experimental-modules-support','--background-index', '--clang-tidy', '--log=verbose'},
+    root_dir = vim.fs.dirname(vim.fs.find({'compile_commands.json', '.git'}, {upward = true})[1]),
+    filetypes = {'c', 'cpp', 'h', 'hpp', 'ixx', 'cppm'},
+})
+
 vim.lsp.enable({
     'lua_ls',
-    'ccls',
-    'pyright',
+    'roslyn',
     'godot',
+    'clangd',
+    'pyright',
 })
