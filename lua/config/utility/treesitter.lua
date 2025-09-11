@@ -18,6 +18,7 @@ require'nvim-treesitter.configs'.setup{
         "html",
         "javascript",
         "json",
+        'markdown',
         "markdown_inline",
         "python",
         "rust",

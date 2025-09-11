@@ -1,5 +1,23 @@
 local home = vim.fn.expand("~")
 local target = home .. "/Repos/AltRepos/MicrosoftLanguageServer/content/LanguageServer/linux-x64"
+
+vim.lsp.config("ltex-ls", {
+    cmd = {'ltex-ls'},
+    filetypes = {'markdown', 'text', 'tex', 'gitcommit'},
+    root_dir = vim.fs.dirname(vim.fs.find({'.git'}, {upward = true})[1]),
+    settings = {
+        ltex = {
+            language = 'en-US',
+            completionEnabled = true,
+            additionalRules = {
+                enablePickyRules = true,
+
+            },
+        },
+    },
+    flags = { debounce_text_changes = 500, },
+})
+
 vim.lsp.config("roslyn", {
     cmd = {
         "dotnet",
@@ -39,4 +57,5 @@ vim.lsp.enable({
     'godot',
     'clangd',
     'pyright',
+    'ltex-ls',
 })

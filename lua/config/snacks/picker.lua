@@ -1,4 +1,8 @@
-local sn = require('snacks') local wk = require('which-key') wk.add({ { "<leader><space>", sn.picker.smart, desc = "Smart Find Files" }, { "<leader>,", sn.picker.buffers, desc = "Buffers" },
+local sn = require('snacks')
+local wk = require('which-key')
+wk.add({
+    { "<leader><space>", sn.picker.smart, desc = "Smart Find Files" },
+    { "<leader>,", sn.picker.buffers, desc = "Buffers" },
     { "<leader>/", sn.picker.grep, icon = '', desc = "Grep" },
     { "<leader>:", sn.picker.command_history, icon = '',desc = "Command History" },
     { "<leader>n", sn.picker.notifications, icon = '󰎟',desc = "Notification History" },
@@ -56,4 +60,4 @@ local sn = require('snacks') local wk = require('which-key') wk.add({ { "<leader
     { "<leader>ly", sn.picker.lsp_type_definitions, desc = "Goto T[y]pe Definition" },
     { "<leader>ls", sn.picker.lsp_symbols, desc = "LSP Symbols" },
     { "<leader>lS", sn.picker.lsp_workspace_symbols, desc = "LSP Workspace Symbols" },
-}) 
+})

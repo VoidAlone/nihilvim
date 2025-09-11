@@ -4,7 +4,7 @@ dap.adapters.gdb = {
     id = 'gdb',
     type = 'executable',
     command = 'gdb',
-    args = {'--interpreter=dap', '--eval-command', 'set print pretty on',},
+    args = {'--interpreter=dap', },
 }
 
 local function gdb_general_config(name)
@@ -24,7 +24,7 @@ local function gdb_general_config(name)
         stopAtBeginningOfMainSubprogram = false,
         setupCommands = {
             text = '-enable-pretty-printing',
-            ignoreFailures = true
+            ignoreFailures = false,
         }
     }
 end
