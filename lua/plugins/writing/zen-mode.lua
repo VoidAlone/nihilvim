@@ -1,7 +1,6 @@
-return -- Lua
-{
+return {
   "folke/zen-mode.nvim",
-  enabled = false,
+  enabled = true,
   opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings

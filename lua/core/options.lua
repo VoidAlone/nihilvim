@@ -11,3 +11,9 @@ vim.opt.mouse = "a"
 vim.opt.cursorline = true
 vim.opt.completeopt = { "menuone", "noselect", "popup" }
 vim.opt.showcmd = true
+
+vim.opt.number = true
+vim.opt.textwidth = 80
+vim.opt.showbreak = "↪ "
+vim.opt.formatoptions:append('t')
+

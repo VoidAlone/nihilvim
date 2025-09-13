@@ -42,7 +42,5 @@ return {
         statuscolumn = { },
         words = { },
         toggle = { },
-        zen = { },
-        dim = { },
     },
 }
