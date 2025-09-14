@@ -12,8 +12,18 @@ vim.opt.cursorline = true
 vim.opt.completeopt = { "menuone", "noselect", "popup" }
 vim.opt.showcmd = true
 
-vim.opt.number = true
-vim.opt.textwidth = 80
-vim.opt.showbreak = "↪ "
-vim.opt.formatoptions:append('t')
+vim.api.nvim_create_autocmd({'FileType'}, {
+    pattern = '*',
+    callback = function()
+        --SOFTWRAP
+        -- vim.opt.wrap = true
+        -- vim.opt.linebreak = true
+        -- vim.opt.breakat=" "
+        -- vim.opt.showbreak = "↪ "
+
+        -- HARDWRAP
+        vim.opt.textwidth = 80
+        vim.opt.formatoptions:append('t')
+    end
+})
 
