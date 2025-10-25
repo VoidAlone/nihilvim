@@ -16,14 +16,14 @@ vim.api.nvim_create_autocmd({'FileType'}, {
     pattern = '*',
     callback = function()
         --SOFTWRAP
-        -- vim.opt.wrap = true
-        -- vim.opt.linebreak = true
-        -- vim.opt.breakat=" "
-        -- vim.opt.showbreak = "↪ "
+        vim.opt.wrap = true
+        vim.opt.linebreak = true
+        vim.opt.breakat=" "
+        vim.opt.showbreak = "↪ "
 
         -- HARDWRAP
-        vim.opt.textwidth = 80
-        vim.opt.formatoptions:append('t')
+        -- vim.opt.textwidth = 80
+        -- vim.opt.formatoptions:append('t')
     end
 })
 
