@@ -1,5 +1,5 @@
 local home = vim.fn.expand("~")
-local target = home .. "/Repos/AltRepos/MicrosoftLanguageServer/content/LanguageServer/linux-x64"
+local target = home .. "/.local/lib/MicrosoftLanguageServer/content/LanguageServer/linux-x64/"
 
 vim.lsp.config("ltex-ls", {
     cmd = {'ltex-ls'},
@@ -21,7 +21,7 @@ vim.lsp.config("ltex-ls", {
 vim.lsp.config("roslyn", {
     cmd = {
         "dotnet",
-        target .. "/Microsoft.CodeAnalysis.LanguageServer.dll",
+        target .. "Microsoft.CodeAnalysis.LanguageServer.dll",
         "--logLevel=Information",
         "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
         "--stdio",
@@ -43,10 +43,10 @@ vim.lsp.config('godot', {
         end
     end
 })
-
+-- '--experimental-modules-support',
 -- vim.lsp.config('clangd', {
 --     --experimental-modules-support
---     cmd = {'/home/linuxbrew/.linuxbrew/bin/clangd', '--experimental-modules-support','--background-index', '--clang-tidy', '--log=verbose'},
+--     cmd = {'/home/linuxbrew/.linuxbrew/bin/clangd', '--background-index', '--clang-tidy', '--log=verbose', '--pretty'},
 --     root_dir = vim.fs.dirname(vim.fs.find({'compile_commands.json', '.git'}, {upward = true})[1]),
 --     filetypes = {'c', 'cpp', 'h', 'hpp', 'ixx', 'cppm'},
 -- })
@@ -67,5 +67,5 @@ vim.lsp.enable({
     'clangd',
     'jsonls',
     'pyright',
-    'ltex-ls',
+    'ltex_plus',
 })
