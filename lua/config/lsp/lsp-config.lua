@@ -44,11 +44,20 @@ vim.lsp.config('godot', {
     end
 })
 
-vim.lsp.config('clangd', {
-    --experimental-modules-support
-    cmd = {'clangd', '--experimental-modules-support','--background-index', '--clang-tidy', '--log=verbose'},
-    root_dir = vim.fs.dirname(vim.fs.find({'compile_commands.json', '.git'}, {upward = true})[1]),
-    filetypes = {'c', 'cpp', 'h', 'hpp', 'ixx', 'cppm'},
+-- vim.lsp.config('clangd', {
+--     --experimental-modules-support
+--     cmd = {'/home/linuxbrew/.linuxbrew/bin/clangd', '--experimental-modules-support','--background-index', '--clang-tidy', '--log=verbose'},
+--     root_dir = vim.fs.dirname(vim.fs.find({'compile_commands.json', '.git'}, {upward = true})[1]),
+--     filetypes = {'c', 'cpp', 'h', 'hpp', 'ixx', 'cppm'},
+-- })
+
+vim.lsp.config('jsonls', {
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
 })
 
 vim.lsp.enable({
@@ -56,6 +65,7 @@ vim.lsp.enable({
     'roslyn',
     'godot',
     'clangd',
+    'jsonls',
     'pyright',
     'ltex-ls',
 })

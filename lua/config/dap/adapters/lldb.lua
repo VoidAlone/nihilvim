@@ -20,6 +20,7 @@ local function lldb_general_config(name)
             return path
         end,
         cwd = "${workspaceFolder}",
+        console = 'integratedTerminal',
         -- stopOnEntry = false,
         -- console = 'integratedTerminal',
         -- console = 'internalConsole',
