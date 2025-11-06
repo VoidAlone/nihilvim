@@ -3,7 +3,7 @@ local dap = require("dap")
 dap.adapters.lldb = {
     name = 'lldb',
     type = "executable",
-    command = "/home/linuxbrew/.linuxbrew/bin/lldb-dap",
+    command = "lldb-dap",
 }
 
 local function lldb_general_config(name)
@@ -22,7 +22,7 @@ local function lldb_general_config(name)
         cwd = "${workspaceFolder}",
         console = 'integratedTerminal',
         -- stopOnEntry = false,
-        -- console = 'integratedTerminal',
+        console = 'integratedTerminal',
         -- console = 'internalConsole',
     }
 end
