@@ -1,5 +1,5 @@
 Some quick layout stuff
-
+`
 .
 └── lua
     ├── config
@@ -17,7 +17,7 @@ Some quick layout stuff
         ├── utility
         ├── visual
         └── writing
-
+`
 ## Core Directory
 
 Used for basic setup. General LSP settings, Lazy Package Manager, a few keybinds, and some options.
