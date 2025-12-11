@@ -21,6 +21,7 @@ require'nvim-treesitter.configs'.setup{
         "latex",
         "markdown",
         "markdown_inline",
+        "nim",
         "python",
         "rust",
         "regex",

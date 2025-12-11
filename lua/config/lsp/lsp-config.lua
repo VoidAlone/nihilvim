@@ -60,12 +60,18 @@ vim.lsp.config('jsonls', {
   },
 })
 
+vim.lsp.config('nimlangserver', {
+    cmd = { vim.fn.expand("~/.nimble/bin/nimlangserver")},
+    filetypes = {"nim"},
+})
+
 vim.lsp.enable({
-    'lua_ls',
-    'roslyn',
-    'godot',
     'clangd',
+    'godot',
     'jsonls',
-    'pyright',
     'ltex_plus',
+    'lua_ls',
+    'nimlangserver',
+    'pyright',
+    'roslyn',
 })
