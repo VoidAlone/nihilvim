@@ -1,15 +1,15 @@
 local dap = require("dap")
 
-dap.adapters.lldb = {
+dap.adapters["lldb-dap"] = {
     name = 'lldb',
     type = "executable",
-    command = "lldb-dap",
+    command = vim.fn.exepath("lldb-dap")
 }
 
 local function lldb_general_config(name)
     return{
         name = name,
-        type = "lldb",
+        type = "lldb-dap",
         request = "launch",
         program = function()
             local path = vim.fn.input({
@@ -20,7 +20,7 @@ local function lldb_general_config(name)
             return path
         end,
         cwd = "${workspaceFolder}",
-        -- console = 'integratedTerminal',
+        console = 'integratedTerminal',
         -- stopOnEntry = false,
         -- console = 'integratedTerminal',
         -- console = 'internalConsole',
