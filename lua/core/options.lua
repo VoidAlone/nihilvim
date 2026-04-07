@@ -12,18 +12,21 @@ vim.opt.cursorline = true
 vim.opt.completeopt = { "menuone", "noselect", "popup" }
 vim.opt.showcmd = true
 
-vim.api.nvim_create_autocmd({'FileType'}, {
-    pattern = '*',
-    callback = function()
-        --SOFTWRAP
-        vim.opt.wrap = true
-        vim.opt.linebreak = true
-        vim.opt.breakat=" "
-        vim.opt.showbreak = "↪ "
+-- vim.opt.virtualedit = "onemore"
 
-        -- HARDWRAP
-        -- vim.opt.textwidth = 80
-        -- vim.opt.formatoptions:append('t')
-    end
-})
+-- vim.api.nvim_create_autocmd({'FileType'}, {
+--     pattern = '*',
+--     callback = function()
+--         --SOFTWRAP
+--         vim.opt_local.wrap = true
+--         vim.opt_local.linebreak = true
+--         vim.opt_local.breakat=" "
+--         vim.opt_local.breakindent = true
+--         vim.opt_local.showbreak = "↪ "
+--
+--         -- HARDWRAP
+--         -- vim.opt.textwidth = 80
+--         -- vim.opt.formatoptions:append('t')
+--     end
+-- })
 

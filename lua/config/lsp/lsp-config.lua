@@ -1,8 +1,12 @@
+-- To add roslyn_ls support, you need to install roslyn with the following command
+-- dotnet tool install --global roslyn-language-server --prerelease
+
+
 local home = vim.fn.expand("~")
 local target = home .. "/.local/lib/MicrosoftLanguageServer/content/LanguageServer/linux-x64/"
 
-vim.lsp.config("ltex-ls", {
-    cmd = {'ltex-ls'},
+vim.lsp.config("ltex_plus", {
+    cmd = {'ltex-ls-plus'},
     filetypes = {'markdown', 'text', 'tex', 'gitcommit'},
     root_dir = vim.fs.dirname(vim.fs.find({'.git'}, {upward = true})[1]),
     settings = {
@@ -18,19 +22,6 @@ vim.lsp.config("ltex-ls", {
     flags = { debounce_text_changes = 500, },
 })
 
-vim.lsp.config("roslyn", {
-    cmd = {
-        "dotnet",
-        target .. "Microsoft.CodeAnalysis.LanguageServer.dll",
-        "--logLevel=Information",
-        "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
-        "--stdio",
-    },
-    root_dir = vim.fs.dirname(vim.fs.find({ "*.csproj", "*.sln" }, { upward = true,})[1]),
-    filetypes = {'cs'},
-    -- Add other options here
-})
-
 local cmd = vim.lsp.rpc.connect('127.0.0.1', 6005)
 local pipe = '/tmp/godot.pipe'
 vim.lsp.config('godot', {
@@ -43,6 +34,7 @@ vim.lsp.config('godot', {
         end
     end
 })
+
 -- '--experimental-modules-support',
 -- vim.lsp.config('clangd', {
 --     --experimental-modules-support,
@@ -73,5 +65,5 @@ vim.lsp.enable({
     'lua_ls',
     'nimlangserver',
     'pyright',
-    'roslyn',
+    'roslyn_ls',
 })
