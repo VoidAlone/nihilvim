@@ -45,10 +45,10 @@ vim.lsp.config('godot', {
 })
 -- '--experimental-modules-support',
 -- vim.lsp.config('clangd', {
---     --experimental-modules-support
---     cmd = {'/home/linuxbrew/.linuxbrew/bin/clangd', '--background-index', '--clang-tidy', '--log=verbose', '--pretty'},
+--     --experimental-modules-support,
+--     cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose', '--pretty'},
 --     root_dir = vim.fs.dirname(vim.fs.find({'compile_commands.json', '.git'}, {upward = true})[1]),
---     filetypes = {'c', 'cpp', 'h', 'hpp', 'ixx', 'cppm'},
+--     filetypes = {'c', 'cpp', 'h', 'hpp', 'ixx', 'cppm', 'tpp'},
 -- })
 
 vim.lsp.config('jsonls', {
