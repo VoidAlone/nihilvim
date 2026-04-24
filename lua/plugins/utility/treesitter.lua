@@ -5,7 +5,8 @@ return {
   lazy = false,
   opts = {
     highlight = { enable = true },
-    indent = { enable = true },
+    smartindent = {enable = true},
+    indent = { enable = true, disable = {"python"}},
   },
 }
 

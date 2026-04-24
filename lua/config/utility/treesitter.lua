@@ -1,5 +1,6 @@
-require'nvim-treesitter.configs'.setup{
-    ensure_installed = {
+local ts = require'nvim-treesitter'
+
+ts.install{
         "ada",
         "bash",
         "c",
@@ -28,10 +29,10 @@ require'nvim-treesitter.configs'.setup{
         "xml",
         "yaml",
         "zig",
-    },
-    sync_install = false,
-    auto_install = true,
-    highlight = {
-        enable = true,
-    },
 }
+
+
+-- vim.api.nvim_create_autocmd('FileType', {
+--   pattern = { 'tpp' },
+--   callback = function() vim.treesitter.start() end,
+-- })
