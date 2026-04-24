@@ -15,11 +15,10 @@ vim.lsp.config("ltex_plus", {
             completionEnabled = true,
             additionalRules = {
                 enablePickyRules = true,
-
             },
         },
     },
-    flags = { debounce_text_changes = 500, },
+    flags = { debounce_text_changes = 100000, },
 })
 
 local cmd = vim.lsp.rpc.connect('127.0.0.1', 6005)

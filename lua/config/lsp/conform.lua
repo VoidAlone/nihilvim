@@ -12,17 +12,18 @@ cf.setup({
         rust = { "rustfmt", lsp_format = "fallback" },
         -- Conform will run the first available formatter
         javascript = { "prettierd", "prettier", stop_after_first = true },
+        cs = {},
     },
     formatters = {
         clang_format = {
             prepend_args = {
-                "--style={BasedOnStyle: Allman, IndentWidth: 4, BreakBeforeBraces: Allman}"    
+                "--style={BasedOnStyle: Allman, IndentWidth: 4, BreakBeforeBraces: Allman}"
             }
-        }
+        },
     },
 
 })
 
 wk.add({
-    {'<leader>cf', function() cf.format({async = true}) end, desc ="Format Buffer"}
+    {'<leader>cf', function() cf.format({async = true, lsp_format = "fallback"}) end, desc ="Format Buffer"}
 })
