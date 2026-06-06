@@ -12,6 +12,7 @@ cf.setup({
 		rust = { "rustfmt", lsp_format = "fallback" },
 		-- Conform will run the first available formatter
 		javascript = { "prettierd", "prettier", stop_after_first = true },
+	-- 	cs = {lsp_format = "prefer"},
 	},
 	formatters = {
 		clang_format = {
@@ -26,7 +27,7 @@ wk.add({
 	{
 		"<leader>cf",
 		function()
-			cf.format({ async = false})
+			cf.format({ async = false, lsp_format = "prefer", })
 		end,
 		desc = "Format Buffer",
 	},

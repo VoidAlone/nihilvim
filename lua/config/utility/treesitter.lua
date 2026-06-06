@@ -20,6 +20,7 @@ ts.install{
         "javascript",
         "json",
         "latex",
+		"lua",
         "markdown",
         "markdown_inline",
         "nim",
