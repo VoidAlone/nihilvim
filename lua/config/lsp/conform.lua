@@ -2,7 +2,7 @@ local wk = require("which-key")
 local cf = require("conform")
 cf.setup({
 	formatters_by_ft = {
-		markdown = { "mdformat" },
+		-- markdown = { "mdformat" },
 		c = { "clang_format" },
 		cpp = { "clang_format" },
 		lua = { "stylua" },
@@ -11,9 +11,13 @@ cf.setup({
 		-- You can customize some of the format options for the filetype (:help conform.format)
 		rust = { "rustfmt", lsp_format = "fallback" },
 		-- Conform will run the first available formatter
+		cs = { lsp_format = "prefer" },
+
+		html = { "prettierd", "prettier", stop_after_first = true },
+		css = { "prettierd", "prettier", stop_after_first = true },
 		javascript = { "prettierd", "prettier", stop_after_first = true },
-		html = {"prettierd", "prettier", stop_after_first = true },
-		cs = {lsp_format = "prefer"},
+		typescript = { "prettierd", "prettier", stop_after_first = true },
+		markdown = { "prettierd", "prettier", stop_after_first = true },
 	},
 	formatters = {
 		clang_format = {
@@ -33,5 +37,3 @@ wk.add({
 		desc = "Format Buffer",
 	},
 })
-
-
