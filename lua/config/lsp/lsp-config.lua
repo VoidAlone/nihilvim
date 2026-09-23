@@ -56,8 +56,33 @@ vim.lsp.config('nimlangserver', {
     filetypes = {"nim"},
 })
 
+local function configure_clangd(name, standard, filetypes)
+	vim.lsp.config(name, {
+		cmd = {
+			'clangd',
+			'--background-index',
+			'--clang-tidy',
+			'--query-driver=/usr/local/vitasdk/bin/arm-vita-eabi-*',
+		},
+		root_dir = vim.fs.dirname(
+			vim.fs.find(
+				{'compile_commands.json', '.git'},
+				{upward = true}
+			)[1]
+		),
+		filetypes = filetypes,
+		init_options = {
+			fallbackFlags = {'-std=' .. standard},
+		},
+	})
+end
+
+configure_clangd('clangd_c', 'c23', {'c', 'h'})
+configure_clangd('clangd_cpp', 'c++23', {'cpp', 'hpp', 'ixx', 'cppm', 'tpp'})
+
 vim.lsp.enable({
-    'clangd',
+    'clangd_c',
+    'clangd_cpp',
     'godot',
     'jsonls',
     'ltex_plus',
