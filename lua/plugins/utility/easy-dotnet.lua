@@ -1,6 +1,6 @@
 return -- lazy.nvim
 {
-	enabled = false,
+	enabled = true,
   "GustavEikaas/easy-dotnet.nvim",
   -- 'nvim-telescope/telescope.nvim' or 'ibhagwan/fzf-lua' or 'folke/snacks.nvim'
   -- are highly recommended for a better experience

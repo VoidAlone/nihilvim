@@ -5,6 +5,15 @@
 local home = vim.fn.expand("~")
 local target = home .. "/.local/lib/MicrosoftLanguageServer/content/LanguageServer/linux-x64/"
 
+-- Godot opens files through this socket instead of spawning a terminal-less nvim process.
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        if vim.v.servername == "" and #vim.api.nvim_list_uis() > 0 then
+            vim.fn.serverstart((vim.env.XDG_RUNTIME_DIR or "/tmp") .. "/nvim-godot-" .. (vim.env.USER or vim.fn.getuid()) .. ".sock")
+        end
+    end,
+})
+
 vim.lsp.config("ltex_plus", {
     cmd = {'ltex-ls-plus'},
     filetypes = {'markdown', 'text', 'tex', 'gitcommit'},
@@ -22,16 +31,10 @@ vim.lsp.config("ltex_plus", {
 })
 
 local cmd = vim.lsp.rpc.connect('127.0.0.1', 6005)
-local pipe = '/tmp/godot.pipe'
 vim.lsp.config('godot', {
     cmd = cmd,
     root_dir = vim.fs.dirname(vim.fs.find({ 'project.godot', '.git' }, { upward = true })[1]),
     filetypes = {'gdscript', 'gdshader'},
-    on_attach = function(client, bufnr)
-        if vim.fn.exists('v:servername') == 0 then
-            vim.fn.serverstart(pipe)
-        end
-    end
 })
 
 -- '--experimental-modules-support',
